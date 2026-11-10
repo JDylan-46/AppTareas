@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle de tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="tareaForm" (ngSubmit)="guardar()">
+    <div class="form-intro">
+      <p class="eyebrow">Editar tarea</p>
+      <h1>Actualiza los detalles</h1>
+    </div>
+
+    <ion-list lines="none">
+      <ion-item>
+        <ion-input label="Nombre de la tarea" labelPlacement="stacked" formControlName="nombre"></ion-input>
+      </ion-item>
+      @if (tareaForm.controls.nombre.touched && tareaForm.controls.nombre.invalid) {
+      <ion-note color="danger">
+        El nombre es obligatorio y debe tener máximo 100 caracteres.
+      </ion-note>
+      }
+
+      <ion-item>
+        <ion-textarea label="Descripción" labelPlacement="stacked" formControlName="descripcion" [autoGrow]="true"></ion-textarea>
+      </ion-item>
+      @if (tareaForm.controls.descripcion.touched && tareaForm.controls.descripcion.invalid) {
+      <ion-note color="danger">
+        La descripción es obligatoria y debe tener máximo 500 caracteres.
+      </ion-note>
+      }
+
+      <ion-item>
+        <ion-input type="date" label="Fecha de vencimiento" labelPlacement="stacked"
+          formControlName="fechaVencimiento" [min]="fechaMinima"></ion-input>
+      </ion-item>
+      @if (tareaForm.controls.fechaVencimiento.touched && tareaForm.controls.fechaVencimiento.invalid) {
+      <ion-note color="danger">
+        Selecciona una fecha futura.
+      </ion-note>
+      }
+    </ion-list>
+
+    <div class="actions">
+      <ion-button expand="block" type="submit">Guardar cambios</ion-button>
+      <ion-button expand="block" fill="clear" color="medium" routerLink="/">Cancelar</ion-button>
+    </div>
+  </form>
+</ion-content>

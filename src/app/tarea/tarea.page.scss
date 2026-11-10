@@ -1,0 +1,38 @@
+.form-intro,
+form {
+  padding: 20px;
+}
+
+.form-intro {
+  padding-bottom: 4px;
+}
+
+.form-intro h1 {
+  margin-bottom: 8px;
+}
+
+.form-intro p {
+  color: var(--ion-color-medium);
+  margin-top: 0;
+}
+
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+ion-item {
+  --background: var(--ion-color-light);
+  --border-radius: 12px;
+  margin: 12px 0 4px;
+}
+
+ion-note {
+  display: block;
+  font-size: 0.8rem;
+  padding: 0 12px;
+}
+
+.actions {
+  margin-top: 28px;
+}
